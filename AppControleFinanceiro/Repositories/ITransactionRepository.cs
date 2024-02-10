@@ -1,12 +1,10 @@
-﻿using System.Transactions;
-
-namespace AppControleFinanceiro.Repositories
+﻿namespace AppControleFinanceiro.Repositories
 {
     public interface ITransactionRepository
     {
-        void Delete(Transaction transaction);
-        List<Transaction> GetAll();
-        void Insert(Transaction transaction);
-        void Update(Transaction transaction);
+        void Delete(Models.Transaction transaction);
+        List<Models.Transaction> GetAll();
+        void Insert(Models.Transaction transaction);
+        void Update(Models.Transaction transaction);
     }
 }

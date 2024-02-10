@@ -1,7 +1,10 @@
-﻿namespace AppControleFinanceiro.Models
+﻿using LiteDB;
+
+namespace AppControleFinanceiro.Models
 {
     public class Transaction
     {
+        [BsonId]
         public int Id { get; set; }
         public TransactionType Type { get; set; }
         public string Name { get; set; }
