@@ -4,10 +4,17 @@ namespace AppControleFinanceiro.Views;
 
 public partial class TransactionList : ContentPage
 {
+    private readonly ITransactionViewModel _transactionViewModel;
+
     public TransactionList()
     {
         InitializeComponent();
-        BindingContext = new TransactionViewModel();
+    }
+
+    public TransactionList(ITransactionViewModel transactionViewModel)
+    {
+        _transactionViewModel = transactionViewModel;
+        BindingContext = _transactionViewModel.GetTransactions();
     }
 
     private void OnButtonPlusClickedToTransactionAdd(object sender, EventArgs eventArgs)

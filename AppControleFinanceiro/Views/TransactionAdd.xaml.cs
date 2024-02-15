@@ -1,9 +1,17 @@
 using AppControleFinanceiro.Validations;
+using AppControleFinanceiro.ViewModels;
 
 namespace AppControleFinanceiro.Views;
 
 public partial class TransactionAdd : ContentPage
 {
+    private readonly ITransactionViewModel _transactionViewModel;
+
+    public TransactionAdd(ITransactionViewModel transactionViewModel)
+    {
+        _transactionViewModel = transactionViewModel;
+    }
+
     public TransactionAdd()
     {
         InitializeComponent();

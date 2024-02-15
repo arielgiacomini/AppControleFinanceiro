@@ -3,7 +3,7 @@ using AppControleFinanceiro.Repositories;
 
 namespace AppControleFinanceiro.ViewModels
 {
-    public class TransactionViewModel
+    public class TransactionViewModel : ITransactionViewModel
     {
         private readonly ITransactionRepository _transactionRepository;
 

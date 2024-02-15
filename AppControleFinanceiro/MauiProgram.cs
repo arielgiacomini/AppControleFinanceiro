@@ -1,4 +1,5 @@
 ﻿using AppControleFinanceiro.Repositories;
+using AppControleFinanceiro.ViewModels;
 using LiteDB;
 using Microsoft.Extensions.Logging;
 
@@ -37,6 +38,7 @@ public static class MauiProgram
         mauiAppBuilder
             .Services
             .AddTransient<ITransactionRepository, TransactionRepository>();
+        mauiAppBuilder.Services.AddTransient<ITransactionViewModel, TransactionViewModel>();
 
         return mauiAppBuilder;
     }
