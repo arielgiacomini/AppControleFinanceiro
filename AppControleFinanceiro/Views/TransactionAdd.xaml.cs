@@ -1,4 +1,5 @@
 using AppControleFinanceiro.Repositories;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Text;
 
 namespace AppControleFinanceiro.Views;
@@ -30,6 +31,9 @@ public partial class TransactionAdd : ContentPage
         _transactionRepository.Insert(MapViewToDomain());
 
         Navigation.PopModalAsync();
+
+
+        WeakReferenceMessenger.Default.Send<string>(string.Empty);
 
         var count = _transactionRepository.GetAll().Count;
         App.Current.MainPage.DisplayAlert("Mensagem!", $"Existem {count} registro(s) no Banco de Dados", "OK");
@@ -74,7 +78,7 @@ public partial class TransactionAdd : ContentPage
 
         if (!string.IsNullOrEmpty(EntryValue.Text) && !decimal.TryParse(EntryValue.Text, out decimal result))
         {
-            stringBuilder.AppendLine($"O campo [Valor] com a informação {result} é invalido.");
+            stringBuilder.AppendLine($"O campo [Valor] com a informação [{EntryValue.Text}] é invalido.");
             isValid = false;
         }
 
