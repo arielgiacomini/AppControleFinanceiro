@@ -31,13 +31,10 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-
         <Button
             Clicked="OnButtonPlusClickedToTransactionEdit"
             HorizontalOptions="Center"
             Text="Atualizar" />
-
         <Border
             Margin="10"
             Padding="10,15"
