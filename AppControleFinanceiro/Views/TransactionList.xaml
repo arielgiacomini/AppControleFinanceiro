@@ -9,22 +9,29 @@
         <ResourceDictionary Source="/Resources/Styles/Colors.xaml" />
     </ContentPage.Resources>
     <VerticalStackLayout>
-        <Grid Padding="15" ColumnDefinitions="50, *, Auto">
-            <Label
-                FontSize="20"
-                HorizontalOptions="Center"
-                Text="S"
-                VerticalOptions="Center" />
-            <VerticalStackLayout Grid.Column="1">
-                <Label Text="{Binding Transaction.Name}" />
-                <Label Text="{Binding Transaction.Date, StringFormat='{}{0:dd/MM/yyyy}'}" TextColor="{StaticResource Tertiary}" />
-            </VerticalStackLayout>
-            <Label
-                Grid.Column="2"
-                Text="{Binding Transaction.Value, StringFormat='R$ {0:F2}'}"
-                TextColor="{StaticResource Tertiary}"
-                VerticalOptions="Center" />
-        </Grid>
+        <CollectionView x:Name="CollectionViewTransactions">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15" ColumnDefinitions="50, *, Auto">
+                        <Label
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="S"
+                            VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="{StaticResource Tertiary}" />
+                        </VerticalStackLayout>
+                        <Label
+                            Grid.Column="2"
+                            Text="{Binding Value, StringFormat='{0:C}'}"
+                            TextColor="{StaticResource Tertiary}"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
 
         <Button
             Clicked="OnButtonPlusClickedToTransactionEdit"
