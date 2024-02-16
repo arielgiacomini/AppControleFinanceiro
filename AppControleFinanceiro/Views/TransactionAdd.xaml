@@ -30,25 +30,29 @@
                 </Image>
             </Grid>
         </Border>
+
+        <Label x:Name="LabelError" Margin="30,0" IsVisible="True" TextColor="Red"/>
         <Grid
             Margin="30,0"
             ColumnDefinitions="*, *"
             RowDefinitions="Auto">
             <RadioButton
+                x:Name="RadioIncome"
                 Grid.Row="0"
                 Grid.Column="0"
                 Content="Receita"
                 IsChecked="False" />
             <RadioButton
+                x:Name="RadioExpensive"
                 Grid.Row="1"
                 Grid.Column="1"
                 Content="Despesa"
                 HorizontalOptions="End"
                 IsChecked="True" />
         </Grid>
-        <Entry Margin="15,0" Placeholder="Nome" />
-        <DatePicker Margin="15,0" />
-        <Entry Margin="15,0" Placeholder="Valor R$" />
+        <Entry x:Name="EntryName"  Margin="15,0" Placeholder="Nome" />
+        <DatePicker x:Name="DatePickerDate" Margin="15,0" />
+        <Entry x:Name="EntryValue" Margin="15,0" Placeholder="Valor R$" />
         <Button HorizontalOptions="Center" Text="Salvar" Clicked="OnButtonSave_Clicked" />
     </VerticalStackLayout>
 </ContentPage>
