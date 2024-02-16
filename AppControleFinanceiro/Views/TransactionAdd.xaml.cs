@@ -1,19 +1,15 @@
-using AppControleFinanceiro.Validations;
-using AppControleFinanceiro.ViewModels;
+using AppControleFinanceiro.Repositories;
+using System.Text;
 
 namespace AppControleFinanceiro.Views;
 
 public partial class TransactionAdd : ContentPage
 {
-    private readonly ITransactionViewModel _transactionViewModel;
+    private readonly ITransactionRepository _transactionRepository;
 
-    public TransactionAdd(ITransactionViewModel transactionViewModel)
+    public TransactionAdd(ITransactionRepository transactionRepository)
     {
-        _transactionViewModel = transactionViewModel;
-    }
-
-    public TransactionAdd()
-    {
+        _transactionRepository = transactionRepository;
         InitializeComponent();
     }
 
@@ -24,6 +20,70 @@ public partial class TransactionAdd : ContentPage
 
     private void OnButtonSave_Clicked(object sender, EventArgs e)
     {
-        TransactionAddValidations.IsValidData(new Models.Transaction());
+        var isValid = IsValidData();
+
+        if (!isValid)
+        {
+            return;
+        }
+
+        _transactionRepository.Insert(MapViewToDomain());
+
+        Navigation.PopModalAsync();
+
+        var count = _transactionRepository.GetAll().Count;
+        App.Current.MainPage.DisplayAlert("Mensagem!", $"Existem {count} registro(s) no Banco de Dados", "OK");
+    }
+
+    private Models.Transaction MapViewToDomain()
+    {
+        Models.Transaction transaction = new()
+        {
+            Name = EntryName.Text
+        };
+
+        bool valueValid = decimal.TryParse(EntryValue.Text, out decimal value);
+
+        if (valueValid)
+        {
+            transaction.Value = value;
+        }
+
+        transaction.Date = DatePickerDate.Date;
+        transaction.Type = RadioIncome.IsChecked ? Models.TransactionType.Income : Models.TransactionType.Expenses;
+
+        return transaction;
+    }
+
+    private bool IsValidData()
+    {
+        bool isValid = true;
+        StringBuilder stringBuilder = new();
+
+        if (string.IsNullOrWhiteSpace(EntryName.Text))
+        {
+            stringBuilder.AppendLine("O campo [Nome] deve ser preenchido!");
+            isValid = false;
+        }
+
+        if (string.IsNullOrWhiteSpace(EntryValue.Text))
+        {
+            stringBuilder.AppendLine("O campo [Valor] deve ser preenchido!");
+            isValid = false;
+        }
+
+        if (!string.IsNullOrEmpty(EntryValue.Text) && !decimal.TryParse(EntryValue.Text, out decimal result))
+        {
+            stringBuilder.AppendLine($"O campo [Valor] com a informação {result} é invalido.");
+            isValid = false;
+        }
+
+        if (!isValid)
+        {
+            LabelError.IsVisible = true;
+            LabelError.Text = stringBuilder.ToString();
+        }
+
+        return isValid;
     }
 }
