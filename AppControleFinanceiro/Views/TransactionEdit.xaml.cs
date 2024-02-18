@@ -50,7 +50,7 @@ public partial class TransactionEdit : ContentPage
 
         if (valueValid)
         {
-            transaction.Value = value;
+            transaction.Value = Math.Abs(value);
         }
 
         transaction.Date = DatePickerDate.Date;

@@ -52,9 +52,20 @@
                 HorizontalOptions="End"
                 IsChecked="True" />
         </Grid>
-        <Entry x:Name="EntryName" Margin="15,0" Placeholder="Nome" />
-        <DatePicker x:Name="DatePickerDate" Margin="15,0" />
-        <Entry x:Name="EntryValue" Margin="15,0" Placeholder="Valor R$" />
-        <Button HorizontalOptions="Center" Text="Atualizar" Clicked="OnButtonUpdate_Clicked" />
+        <Entry 
+            x:Name="EntryName" 
+            Margin="15,0" 
+            Placeholder="Nome" />
+        <DatePicker 
+            x:Name="DatePickerDate" 
+            Margin="{OnPlatform Default='15,0', MacCatalyst='15, 15, 15, 0'}" />
+        <Entry 
+            x:Name="EntryValue" 
+            Margin="15,0"
+            Placeholder="Valor R$" />
+        <Button 
+            HorizontalOptions="Center" 
+            Text="Atualizar" 
+            Clicked="OnButtonUpdate_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

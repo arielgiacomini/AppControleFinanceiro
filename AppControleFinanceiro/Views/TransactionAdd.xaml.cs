@@ -1,4 +1,5 @@
 using AppControleFinanceiro.Repositories;
+using AppControleFinanceiro.Utilities.FixBugs;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Text;
 
@@ -16,6 +17,7 @@ public partial class TransactionAdd : ContentPage
 
     private void TapGestureRecognizerTappedClose(object sender, TappedEventArgs e)
     {
+        //FixKeyboards.HideKeyboard();
         Navigation.PopModalAsync();
     }
 
@@ -29,6 +31,8 @@ public partial class TransactionAdd : ContentPage
         }
 
         _transactionRepository.Insert(MapViewToDomain());
+
+        //FixKeyboards.HideKeyboard();
 
         Navigation.PopModalAsync();
 
@@ -49,7 +53,7 @@ public partial class TransactionAdd : ContentPage
 
         if (valueValid)
         {
-            transaction.Value = value;
+            transaction.Value = Math.Abs(value);
         }
 
         transaction.Date = DatePickerDate.Date;

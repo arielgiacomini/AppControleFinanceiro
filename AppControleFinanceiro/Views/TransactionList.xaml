@@ -15,7 +15,7 @@
             <converters:TransactionNameColorConverter x:Key="TransactionNameColorConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <VerticalStackLayout>
+    <Grid RowDefinitions="*, 180">
         <CollectionView x:Name="CollectionViewTransactions">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -51,7 +51,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Border
+        <Border Grid.Row="1"
             Margin="10"
             Padding="10,15"
             BackgroundColor="{StaticResource Black}"
@@ -75,7 +75,7 @@
                     BackgroundColor="{StaticResource Primary}"
                     Clicked="OnButtonPlusClickedToTransactionAdd"
                     CornerRadius="27"
-                    FontSize="48"
+                    FontSize="{OnPlatform Android=36, Default=48}"
                     HeightRequest="54"
                     HorizontalOptions="Center"
                     Text="+"
@@ -107,5 +107,5 @@
                     FontSize="12" />
             </Grid>
         </Border>
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>
