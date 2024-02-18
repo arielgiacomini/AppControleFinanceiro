@@ -25,13 +25,16 @@
                     Source="close.png"
                     WidthRequest="17">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_ExitTapped" />
+                        <TapGestureRecognizer Tapped="TapGestureRecognizerTappedClose" />
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
         </Border>
-
-        <Label x:Name="LabelError" Margin="30,0" IsVisible="True" TextColor="Red"/>
+        <Label 
+            x:Name="LabelError" 
+            Margin="30,0" 
+            IsVisible="True" 
+            TextColor="Red"/>
         <Grid
             Margin="30,0"
             ColumnDefinitions="*, *"

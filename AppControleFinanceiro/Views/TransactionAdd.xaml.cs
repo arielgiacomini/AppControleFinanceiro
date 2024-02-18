@@ -14,7 +14,7 @@ public partial class TransactionAdd : ContentPage
         InitializeComponent();
     }
 
-    private void TapGestureRecognizer_ExitTapped(object sender, TappedEventArgs e)
+    private void TapGestureRecognizerTappedClose(object sender, TappedEventArgs e)
     {
         Navigation.PopModalAsync();
     }
@@ -31,7 +31,6 @@ public partial class TransactionAdd : ContentPage
         _transactionRepository.Insert(MapViewToDomain());
 
         Navigation.PopModalAsync();
-
 
         WeakReferenceMessenger.Default.Send<string>(string.Empty);
 
