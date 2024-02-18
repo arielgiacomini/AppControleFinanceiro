@@ -25,13 +25,16 @@
                     Source="close.png"
                     WidthRequest="17">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_ExitTapped" />
+                        <TapGestureRecognizer Tapped="TapGestureRecognizerTappedClose" />
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
         </Border>
-
-        <Label x:Name="LabelError" Margin="30,0" IsVisible="True" TextColor="Red"/>
+        <Label 
+            x:Name="LabelError" 
+            Margin="30,0" 
+            IsVisible="True" 
+            TextColor="Red"/>
         <Grid
             Margin="30,0"
             ColumnDefinitions="*, *"
@@ -50,9 +53,20 @@
                 HorizontalOptions="End"
                 IsChecked="True" />
         </Grid>
-        <Entry x:Name="EntryName"  Margin="15,0" Placeholder="Nome" />
-        <DatePicker x:Name="DatePickerDate" Margin="15,0" />
-        <Entry x:Name="EntryValue" Margin="15,0" Placeholder="Valor R$" />
-        <Button HorizontalOptions="Center" Text="Salvar" Clicked="OnButtonSave_Clicked" />
+        <Entry 
+            x:Name="EntryName"  
+            Margin="15,0" 
+            Placeholder="Nome" />
+        <DatePicker 
+            x:Name="DatePickerDate" 
+            Margin="{OnPlatform Default='15,0', MacCatalyst='15, 15, 15, 0'}" />
+        <Entry 
+            x:Name="EntryValue" 
+            Margin="15,0" 
+            Placeholder="Valor R$" />
+        <Button 
+            HorizontalOptions="Center" 
+            Text="Salvar" 
+            Clicked="OnButtonSave_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

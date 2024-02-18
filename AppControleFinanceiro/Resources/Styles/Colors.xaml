@@ -18,7 +18,7 @@
     <Color x:Key="LightGradientPlusClaro">#F3F4F1</Color>
     <Color x:Key="LightGradientPlusEscuro">#D7D8D5</Color>
     <Color x:Key="DarkGradientPlusClaro">#7c7c7c</Color>
-    <Color x:Key="DarkGradientPlusEscuro">#131313</Color>
+    <Color x:Key="DarkGradientPlusEscuro">#404040</Color>
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}" />

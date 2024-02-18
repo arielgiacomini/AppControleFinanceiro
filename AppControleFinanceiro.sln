@@ -5,9 +5,10 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppControleFinanceiro", "AppControleFinanceiro\AppControleFinanceiro.csproj", "{99213BC7-1A1B-4772-ABC6-0ABAF621BFF2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{51C4BD67-0197-4C0E-BE5E-752DB71DBA3D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3CDCEAB3-0723-4D90-AE79-0D66BDF052E5}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
+		..\..\Spacedu\MAUIAppControleFinanceiro\LICENSE = ..\..\Spacedu\MAUIAppControleFinanceiro\LICENSE
+		..\..\Spacedu\MAUIAppControleFinanceiro\README.md = ..\..\Spacedu\MAUIAppControleFinanceiro\README.md
 	EndProjectSection
 EndProject
 Global
